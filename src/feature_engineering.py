@@ -4,9 +4,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import logging
 import yaml
 
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PARAMS_PATH = os.path.join(ROOT_DIR, "params.yaml")
-
 # Ensure the "logs" directory exists
 log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)
@@ -97,9 +94,9 @@ def save_data(df: pd.DataFrame, file_path: str) -> None:
 
 def main():
     try:
-        params = load_params(params_path=PARAMS_PATH)
-        max_features = params['feature_engineering']['max_features']
-        # max_features = 50
+        # params = load_params(params_path=PARAMS_PATH)
+        # max_features = params['feature_engineering']['max_features']
+        max_features = 50
 
         train_data = load_data('./data/interim/train_processed.csv')
         test_data = load_data('./data/interim/test_processed.csv')
